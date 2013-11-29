@@ -1,3 +1,3 @@
-class KgDatawarehouse
+module KgDatawarehouse
   
 end

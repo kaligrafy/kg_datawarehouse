@@ -1,6 +1,3 @@
 require "active_record"
-require "lib/models/kg_datawarehouse_date_dimension.rb"
+require "models/kg_datawarehouse_date_dimension.rb"
 
-module KgDatawarehouse
-  
-end

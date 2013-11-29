@@ -1,3 +1,7 @@
+require 'rails/generators'
+require 'rails/generators/migration'
+require 'rails/generators/active_record'
+
 module KgDatawarehouse
   class DateDimensionsInstallGenerator < ::Rails::Generators::Base
       include ::Rails::Generators::Migration

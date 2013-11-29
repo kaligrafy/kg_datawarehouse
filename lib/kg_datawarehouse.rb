@@ -1,3 +1,3 @@
-class KgDataWarehouse
+class KgDatawarehouse
   
 end

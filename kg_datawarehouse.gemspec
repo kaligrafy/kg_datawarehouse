@@ -5,7 +5,7 @@ require 'kg_datawarehouse/version'
 
 Gem::Specification.new do |spec|
   spec.name        = 'kg_datawarehouse'
-  spec.version  = KgDatawarehouse::VERSION
+  spec.version     = KgDatawarehouse::VERSION
   spec.platform    = Gem::Platform::RUBY
   spec.summary     = "KG Data Warehouse"
   spec.description = "Rails Implementation of Kimball Group Data Warehouse Dimensional Modeling"
@@ -24,11 +24,11 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'sass-rails'
   spec.add_dependency 'uglifier'
   spec.add_dependency 'jquery-rails'
-  spec.add_dependency "railties"
+  spec.add_dependency 'railties'
   
   spec.add_dependency 'pg'
   spec.add_dependency 'rdoc'
-  spec.add_dependency 'globalize3'
+  spec.add_dependency 'hstore_translate'
   spec.add_dependency 'holidays'
   spec.add_dependency 'rake'
   #spec.add_dependency 'spreadsheet' # may be used some time

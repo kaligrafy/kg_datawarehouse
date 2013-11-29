@@ -1,24 +1,35 @@
 # encoding: utf-8
-Gem::Specification.new do |s|
-  s.name        = 'kg_datawarehouse'
-  s.version     = '0.0.1'
-  s.date        = '2013-11-26'
-  s.platform    = Gem::Platform::RUBY
-  s.summary     = "KG Data Warehouse"
-  s.description = "Rails Implementation of Kimball Group Data Warehouse Dimensional Modeling"
-  s.authors     = ["Pierre-Leo Bourbonnais"]
-  s.email       = 'leo@leograph.com'
-  s.homepage    = 'https://github.com/kaligrafy/kg_datawarehouse'
-  s.license     = 'MIT'
+lib = File.expand_path('../lib', __FILE__)
+$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+require 'kg_datawarehouse/version'
+
+Gem::Specification.new do |spec|
+  spec.name        = 'kg_datawarehouse'
+  spec.version  = KgDatawarehouse::VERSION
+  spec.platform    = Gem::Platform::RUBY
+  spec.summary     = "KG Data Warehouse"
+  spec.description = "Rails Implementation of Kimball Group Data Warehouse Dimensional Modeling"
+  spec.authors     = ["Pierre-Leo Bourbonnais"]
+  spec.email       = ["leo@leograph.com"]
+  spec.homepage    = 'https://github.com/kaligrafy/kg_datawarehouse'
+  spec.license     = 'MIT'
   
-  s.files         = `git ls-files`.split("\n")
-  s.test_files    = `git ls-files -- test/*`.split("\n")
-  s.require_paths = ["lib"]
+  spec.files         = `git ls-files`.split($/)
+  spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
+  spec.require_paths = ["lib", "app"]
+
+  spec.add_development_dependency "bundler", "~> 1.3"
+  spec.add_development_dependency "rake"
+  spec.add_dependency 'coffee-rails'
+  spec.add_dependency 'sass-rails'
+  spec.add_dependency 'uglifier'
+  spec.add_dependency 'jquery-rails'
+  spec.add_dependency "railties"
   
-  s.add_dependency 'pg'
-  s.add_dependency 'rdoc'
-  s.add_dependency 'globalize3'
-  s.add_dependency 'holidays'
-  s.add_dependency 'rake'
-  #s.add_dependency 'spreadsheet' # may be used some time
+  spec.add_dependency 'pg'
+  spec.add_dependency 'rdoc'
+  spec.add_dependency 'globalize3'
+  spec.add_dependency 'holidays'
+  spec.add_dependency 'rake'
+  #spec.add_dependency 'spreadsheet' # may be used some time
 end

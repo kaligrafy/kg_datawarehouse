@@ -11,7 +11,7 @@ module KgDatawarehouse
       desc 'Generates (but does not run) a migration to add date dimensions tables.'
 
       def create_migration_file
-        migration_template 'date_dimensions/create_date_dimensions.rb', 'db/migrate/create_kg_datawarehouse_date_dimensions.rb'
+        migration_template 'date_dimensions/create_kg_datawarehouse_date_dimensions.rb', 'db/migrate/create_kg_datawarehouse_date_dimensions.rb'
       end
 
       def self.next_migration_number(dirname)

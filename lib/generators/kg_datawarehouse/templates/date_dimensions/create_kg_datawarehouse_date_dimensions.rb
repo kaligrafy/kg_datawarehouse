@@ -114,7 +114,7 @@ class CreateKgDatawarehouseDateDimensions < ActiveRecord::Migration
     add_index :kg_datawarehouse_time_of_day_dimensions, :pm_flag, :name => :kg_dw_tod_pm_flag
     add_index :kg_datawarehouse_time_of_day_dimensions, :am_pm_marker, :name => :kg_dw_tod_am_pm_marker
     
-    create_table :kg_datawarehouse_hour_of_day_dimension, primary_key: :hour_of_day_key  do |t|
+    create_table :kg_datawarehouse_hour_of_day_dimensions, primary_key: :hour_of_day_key  do |t|
       t.integer   :hour_24
       t.integer   :hour # dupliate of hour_24
       t.integer   :hour_12

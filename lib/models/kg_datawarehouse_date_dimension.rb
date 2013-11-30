@@ -42,7 +42,7 @@ module KgDatawarehouse
           new_date.month_abbrev           = date.strftime("%b")
           new_date.quarter                = ((date.month.to_f/12)*4).ceil
           new_date.year                   = date.year
-          new_date.yearmo                 = date;strftiime("%Y%m").to_i
+          new_date.yearmo                 = date.strftime("%Y%m").to_i
           new_date.fiscal_month           = nil
           new_date.fiscal_quarter         = nil
           new_date.fiscal_year            = nil

@@ -80,12 +80,9 @@ class CreateKgDatawarehouseDateDimensions < ActiveRecord::Migration
       t.integer   :minute
       t.string    :minute_zero_padded
       t.integer   :minutes_since_midnight
-      t.string    :first_minute_in_hour_flag
       t.integer   :second
       t.string    :second_zero_padded
       t.integer   :seconds_since_midnight
-      t.string    :first_second_in_hour_flag
-      t.string    :first_second_in_minute_flag
       t.string    :am_pm
     end
     add_index :kg_datawarehouse_time_of_day_dimensions, :full_time_of_day, :name => :kg_dw_tod_last_day_in_month_flag
@@ -110,12 +107,9 @@ class CreateKgDatawarehouseDateDimensions < ActiveRecord::Migration
     add_index :kg_datawarehouse_time_of_day_dimensions, :minute, :name => :kg_dw_tod_minute
     add_index :kg_datawarehouse_time_of_day_dimensions, :minute_zero_padded, :name => :kg_dw_tod_minute_zero_padded
     add_index :kg_datawarehouse_time_of_day_dimensions, :minutes_since_midnight, :name => :kg_dw_tod_minutes_since_midnight
-    add_index :kg_datawarehouse_time_of_day_dimensions, :first_minute_in_hour_flag, :name => :kg_dw_tod_first_minute_in_hour_flag
     add_index :kg_datawarehouse_time_of_day_dimensions, :second, :name => :kg_dw_tod_second
     add_index :kg_datawarehouse_time_of_day_dimensions, :second_zero_padded, :name => :kg_dw_tod_second_zero_padded
     add_index :kg_datawarehouse_time_of_day_dimensions, :seconds_since_midnight, :name => :kg_dw_tod_seconds_since_midnight
-    add_index :kg_datawarehouse_time_of_day_dimensions, :first_second_in_hour_flag, :name => :kg_dw_tod_first_second_in_hour_flag
-    add_index :kg_datawarehouse_time_of_day_dimensions, :first_second_in_minute_flag, :name => :kg_dw_tod_first_second_in_minute_flag
     add_index :kg_datawarehouse_time_of_day_dimensions, :am_pm, :name => :kg_dw_tod_am_pm
     
     create_table :kg_datawarehouse_hour_of_day_dimensions, primary_key: :hour_of_day_key  do |t|

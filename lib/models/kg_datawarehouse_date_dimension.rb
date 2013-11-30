@@ -14,13 +14,22 @@ module KgDatawarehouse
         date_end   = args.fetch(:end, nil)   unless date_end
         date_start = Date.parse(date_start) unless date_start.respond_to?(:year) && date_start.respond_to?(:month) && date_start.respond_to?(:mday)
         date_end   = Date.parse(date_end)   unless date_end.respond_to?(:year)   && date_end.respond_to?(:month)   && date_end.respond_to?(:mday)
-        i                 = 0
+        i                 = 1
         week_num          = 1
         week_num_overall  = 1
         month_num_overall = 1
         last_date_year    = date_start.year
         date_start.upto(date_end) do |date|
-          new_date = self.new
+          
+          if last_date_year != new_date.year
+            last_date_year    = new_date.year
+            week_num          = 1 # reset week num if we change year
+            week_num_overall += 1
+          end
+          
+          new_date = self.find(date.strftime("%Y%m%d").to_i)
+          new_date = self.new unless new_date
+          
           new_date.date_key               = date.strftime("%Y%m%d").to_i
           new_date.full_date              = date
           new_date.day_of_week            = date.cwday
@@ -52,15 +61,13 @@ module KgDatawarehouse
           
           new_date.save
           
-          i                 += 1
-          week_num          += 1 if date.sunday?
-          week_num_overall  += 1 if date.sunday?
-          month_num_overall += 1 if date.day == 1
-          
-          if last_date_year != new_date.year
-            last_date_year  = new_date.year
-            week_num        = 1 # reset week num if we change year
+          unless last_date_year != new_date.year
+            week_num_overall  += 1 if date.sunday?
+            week_num          += 1 if date.sunday?
           end
+          
+          i                 += 1
+          month_num_overall += 1 if date.day == 1
           
         end
       end

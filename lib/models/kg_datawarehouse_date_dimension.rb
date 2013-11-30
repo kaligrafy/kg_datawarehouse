@@ -5,6 +5,7 @@ module KgDatawarehouse
     self.table_name = :kg_datawarehouse_date_dimensions
     self.primary_key = :date_key
     
+    # args: hash with date_start and date_end (both must be strings that could be parsed to a date by Date.parse or direct Date objects)
     def self.fill(args)
       ActiveRecord::Base.transaction do
         date_start = args.fetch(:start, nil)
@@ -48,6 +49,8 @@ module KgDatawarehouse
           new_date.last_day_in_month_flag = (date+1.day).day == 1 ? "Month End" : "Not Month End"
           new_date.is_last_day_in_month   = ((date+1.day).day == 1)
           new_date.same_day_year_ago_date = (date.month == 2 && date.day == 29) ? ((date-1.year)+1.day) : (date-1.year) # make sure we fall on March 1 if date is February 29.
+          
+          new_date.save
           
           i                 += 1
           week_num          += 1 if date.sunday?

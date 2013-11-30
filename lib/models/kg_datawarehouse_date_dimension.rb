@@ -21,8 +21,8 @@ module KgDatawarehouse
         last_date_year    = date_start.year
         date_start.upto(date_end) do |date|
           
-          if last_date_year != new_date.year
-            last_date_year    = new_date.year
+          if last_date_year != date.year
+            last_date_year    = date.year
             week_num          = 1 # reset week num if we change year
             week_num_overall += 1
           end
@@ -61,7 +61,7 @@ module KgDatawarehouse
           
           new_date.save
           
-          unless last_date_year != new_date.year
+          unless last_date_year != date.year
             week_num_overall  += 1 if date.sunday?
             week_num          += 1 if date.sunday?
           end

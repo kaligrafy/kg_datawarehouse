@@ -5,7 +5,7 @@ module KgDatawarehouse
     self.table_name = :kg_datawarehouse_date_dimensions
     self.primary_key = :date_key
     
-    # args: hash with date_start and date_end (both must be strings that could be parsed to a date by Date.parse or direct Date objects)
+    # args: hash with :start and :end keys (both values must be strings that could be parsed to a date by Date.parse or direct Date objects)
     def self.fill(args)
       ActiveRecord::Base.transaction do
         date_start = args.fetch(:start, nil)
@@ -19,7 +19,7 @@ module KgDatawarehouse
         week_num_overall  = 1
         month_num_overall = 1
         last_date_year    = date_start.year
-        date_start.up_to(date_end) do |date|
+        date_start.upto(date_end) do |date|
           new_date = self.new
           new_date.date_key               = date.strftime("%Y%m%d").to_i
           new_date.full_date              = date

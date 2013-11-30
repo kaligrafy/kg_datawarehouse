@@ -39,7 +39,7 @@ module KgDatawarehouse
           new_date.month                  = date.month
           new_date.month_num_overall      = month_num_overall
           new_date.month_name             = date.strftime("%B")
-          new_date.month_name_abbrev      = date.strftime("%b")
+          new_date.month_abbrev           = date.strftime("%b")
           new_date.quarter                = ((date.month.to_f/12)*4).ceil
           new_date.year                   = date.year
           new_date.yearmo                 = date;strftiime("%Y%m").to_i

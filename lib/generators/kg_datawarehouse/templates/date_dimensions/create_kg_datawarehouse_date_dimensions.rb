@@ -1,5 +1,5 @@
 class CreateKgDatawarehouseDateDimensions < ActiveRecord::Migration
-  def self.change
+  def change
     create_table :kg_datawarehouse_date_dimensions, primary_key: :date_key  do |t|
       t.date      :full_date
       t.integer   :day_of_week

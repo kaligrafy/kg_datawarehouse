@@ -27,7 +27,7 @@ module KgDatawarehouse
             week_num_overall += 1
           end
           
-          new_date = self.find(date.strftime("%Y%m%d").to_i)
+          new_date = self.find_by_date_key(date.strftime("%Y%m%d").to_i)
           new_date = self.new unless new_date
           
           new_date.date_key               = date.strftime("%Y%m%d").to_i

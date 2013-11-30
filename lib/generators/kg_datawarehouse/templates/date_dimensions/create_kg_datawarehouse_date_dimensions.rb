@@ -26,6 +26,7 @@ class CreateKgDatawarehouseDateDimensions < ActiveRecord::Migration
       t.integer   :fiscal_quarter
       t.integer   :fiscal_year
       t.string    :last_day_in_month_flag
+      t.boolean   :is_last_day_in_month
       t.date      :same_day_year_ago_date
     end
     add_index :kg_datawarehouse_date_dimensions, :full_date, :name => :kg_dw_dd_full_date
@@ -53,6 +54,7 @@ class CreateKgDatawarehouseDateDimensions < ActiveRecord::Migration
     add_index :kg_datawarehouse_date_dimensions, :fiscal_quarter, :name => :kg_dw_dd_fiscal_quarter
     add_index :kg_datawarehouse_date_dimensions, :fiscal_year, :name => :kg_dw_dd_fiscal_year
     add_index :kg_datawarehouse_date_dimensions, :last_day_in_month_flag, :name => :kg_dw_dd_last_day_in_month_flag
+    add_index :kg_datawarehouse_date_dimensions, :is_last_day_in_month, :name => :kg_dw_dd_is_last_day_in_month
     add_index :kg_datawarehouse_date_dimensions, :same_day_year_ago_date, :name => :kg_dw_dd_same_day_year_ago_date
     
     create_table :kg_datawarehouse_time_of_day_dimensions, primary_key: :time_of_day_key  do |t|

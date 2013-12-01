@@ -1,2 +1,3 @@
 require "active_record"
-Dir["models/*.rb"].each {|file| require file }
+require "models/kg_datawarehouse_date_dimension.rb"
+Dir[File.dirname(__FILE__) + "/models/*.rb"].each {|file| require file }

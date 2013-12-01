@@ -16,7 +16,7 @@ module KgDatawarehouse
           seconds_since_midnight = i*3600
           minute = (minutes_since_midnight-i*60)
           second = (seconds_since_midnight-i*3600)
-          new_time.time_of_day_key                   = hour
+          new_time.time_of_day_key                   = i
           new_time.hour_24                           = hour
           new_time.hour                              = hour
           new_time.hour_24_zero_padded               = hour.to_s.rjust(2,"0")

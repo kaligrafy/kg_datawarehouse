@@ -24,12 +24,12 @@ module KgDatawarehouse
           new_time.hour_zero_padded                  = i.to_s.rjust(2,"0")
           new_time.hour_minute_24                    = i.to_s+":"+minute.to_s.rjust(2,"0")
           new_time.hour_minute                       = i.to_s+":"+minute.to_s.rjust(2,"0")
-          new_time.hour_minute_second_24             = i.to_s+":"+minute.to_s.rjust(2,"0")+second.to_s.rjust(2,"0")
-          new_time.hour_minute_second                = i.to_s+":"+minute.to_s.rjust(2,"0")+second.to_s.rjust(2,"0")
+          new_time.hour_minute_second_24             = i.to_s+":"+minute.to_s.rjust(2,"0")+":"+second.to_s.rjust(2,"0")
+          new_time.hour_minute_second                = i.to_s+":"+minute.to_s.rjust(2,"0")+":"+second.to_s.rjust(2,"0")
           new_time.hour_minute_24_zero_padded        = i.to_s.rjust(2,"0")+":"+minute.to_s.rjust(2,"0")
           new_time.hour_minute_zero_padded           = i.to_s.rjust(2,"0")+":"+minute.to_s.rjust(2,"0")
-          new_time.hour_minute_second_24_zero_padded = i.to_s.rjust(2,"0")+":"+minute.to_s.rjust(2,"0")+second.to_s.rjust(2,"0")
-          new_time.hour_minute_second_zero_padded    = i.to_s.rjust(2,"0")+":"+minute.to_s.rjust(2,"0")+second.to_s.rjust(2,"0")
+          new_time.hour_minute_second_24_zero_padded = i.to_s.rjust(2,"0")+":"+minute.to_s.rjust(2,"0")+":"+second.to_s.rjust(2,"0")
+          new_time.hour_minute_second_zero_padded    = i.to_s.rjust(2,"0")+":"+minute.to_s.rjust(2,"0")+":"+second.to_s.rjust(2,"0")
           new_time.minute                            = minute
           new_time.minute_zero_padded                = minute.to_s.rjust(2,"0")
           new_time.minutes_since_midnight            = minutes_since_midnight

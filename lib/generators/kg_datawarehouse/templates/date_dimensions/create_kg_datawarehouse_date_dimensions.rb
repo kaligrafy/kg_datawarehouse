@@ -1,5 +1,6 @@
 class CreateKgDatawarehouseDateDimensions < ActiveRecord::Migration
   def change
+    execute "CREATE SCHEMA datawarehouse IF NOT EXISTS"
     create_table "datawarehouse.kg_datawarehouse_date_dimensions", primary_key: :date_key  do |t|
       t.date      :full_date
       t.integer   :day_of_week

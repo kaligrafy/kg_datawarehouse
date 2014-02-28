@@ -10,16 +10,14 @@ module KgDatawarehouse
       ActiveRecord::Base.transaction do
         date_start = args.fetch(:start, nil)
         date_end   = args.fetch(:end, nil)
-        date_start = args.fetch(:start, nil) unless date_start
-        date_end   = args.fetch(:end, nil)   unless date_end
         date_start = Date.parse(date_start) unless date_start.respond_to?(:year) && date_start.respond_to?(:month) && date_start.respond_to?(:mday)
         date_end   = Date.parse(date_end)   unless date_end.respond_to?(:year)   && date_end.respond_to?(:month)   && date_end.respond_to?(:mday)
-      
+        
         i                 = 1
         week_num          = 1
         week_num_overall  = 1
         month_num_overall = 1
-      
+        
         date_start.upto(date_end) do |date|
         
           new_date = KgDatawarehouse::DateDimension.find_by_date_key(date.strftime("%Y%m%d").to_i)
@@ -52,9 +50,9 @@ module KgDatawarehouse
           new_date.last_day_in_month_flag = (date+1.day).day == 1 ? "Month End" : "Not Month End"
           new_date.is_last_day_in_month   = ((date+1.day).day == 1)
           new_date.same_day_year_ago_date = (date.month == 2 && date.day == 29) ? ((date-1.year)+1.day) : (date-1.year) # make sure we fall on March 1 if date is February 29.
-        
+          
           new_date.save
-        
+          
           if date.year != (date.tomorrow).year
             last_date_year     = date.year
             week_num          = 1 # reset week num if we change year
@@ -63,10 +61,10 @@ module KgDatawarehouse
             week_num_overall  += 1 if date.sunday?
             week_num          += 1 if date.sunday?
           end
-        
+          
           month_num_overall += 1 if date.tomorrow.day == 1 && i != 1
           i                 += 1
-        
+          
         end
       end
     end

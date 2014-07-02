@@ -1,17 +1,17 @@
 require "active_support/core_ext/numeric/time"
 
 module KgDatawarehouse
-  class TimeOfDayMinutesExpandedDimension < ActiveRecord::Base
-    self.table_name = :kg_datawarehouse_time_of_day_minutes_expanded_dimensions
+  class TimeOfDayMinutesExtendedDimension < ActiveRecord::Base
+    self.table_name = :kg_datawarehouse_time_of_day_minutes_extended_dimensions
     self.primary_key = :time_of_day_key
     
     def self.fill
-      KgDatawarehouse::TimeOfDayMinutesExpandedDimension.destroy_all # delete existing data from table
+      KgDatawarehouse::TimeOfDayMinutesExtendedDimension.destroy_all # delete existing data from table
       time_start = Time.parse("2000-01-01 00:00:00 -0000")
       
       ActiveRecord::Base.transaction do
         (0..1800).each do |i|
-          new_time = KgDatawarehouse::TimeOfDayMinutesExpandedDimension.new
+          new_time = KgDatawarehouse::TimeOfDayMinutesExtendedDimension.new
           hour = (i/60).floor
           minutes_since_midnight = i
           seconds_since_midnight = i*60

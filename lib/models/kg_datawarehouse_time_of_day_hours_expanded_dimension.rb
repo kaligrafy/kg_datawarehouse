@@ -1,16 +1,16 @@
 require "active_support/core_ext/numeric/time"
 
 module KgDatawarehouse
-  class TimeOfDayHoursExpandedDimension < ActiveRecord::Base
-    self.table_name = :kg_datawarehouse_time_of_day_hours_expanded_dimensions
+  class TimeOfDayHoursExtendedDimension < ActiveRecord::Base
+    self.table_name = :kg_datawarehouse_time_of_day_hours_extended_dimensions
     self.primary_key = :time_of_day_key
     
     def self.fill
-      KgDatawarehouse::TimeOfDayHoursExpandedDimension.destroy_all # delete existing data from table
+      KgDatawarehouse::TimeOfDayHoursExtendedDimension.destroy_all # delete existing data from table
       
       ActiveRecord::Base.transaction do
         (0..30).each do |i|
-          new_time = KgDatawarehouse::TimeOfDayHoursExpandedDimension.new
+          new_time = KgDatawarehouse::TimeOfDayHoursExtendedDimension.new
           hour = i
           minutes_since_midnight = i*60
           seconds_since_midnight = i*3600

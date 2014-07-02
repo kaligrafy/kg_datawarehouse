@@ -223,7 +223,7 @@ class CreateKgDatawarehouseDateDimensions < ActiveRecord::Migration
     add_index "datawarehouse.kg_datawarehouse_time_of_day_seconds_dimensions", :seconds_since_midnight, :name => :kg_dw_tods_seconds_since_midnight
     add_index "datawarehouse.kg_datawarehouse_time_of_day_seconds_dimensions", :am_pm, :name => :kg_dw_tods_am_pm
     
-    create_table "datawarehouse.kg_datawarehouse_time_of_day_hours_expanded_dimensions", primary_key: :time_of_day_key  do |t|
+    create_table "datawarehouse.kg_datawarehouse_time_of_day_hours_extended_dimensions", primary_key: :time_of_day_key  do |t|
       t.integer   :hour_24
       t.integer   :hour # duplicate of hour_24
       t.string    :hour_24_zero_padded
@@ -243,26 +243,26 @@ class CreateKgDatawarehouseDateDimensions < ActiveRecord::Migration
       t.string    :second_zero_padded
       t.integer   :seconds_since_midnight
     end
-    add_index "datawarehouse.kg_datawarehouse_time_of_day_hours_expanded_dimensions", :hour_24, :name => :kg_dw_todhe_hour_24
-    add_index "datawarehouse.kg_datawarehouse_time_of_day_hours_expanded_dimensions", :hour, :name => :kg_dw_todhe_hour
-    add_index "datawarehouse.kg_datawarehouse_time_of_day_hours_expanded_dimensions", :hour_24_zero_padded, :name => :kg_dw_todhe_hour_24_zero_padded
-    add_index "datawarehouse.kg_datawarehouse_time_of_day_hours_expanded_dimensions", :hour_zero_padded, :name => :kg_dw_todhe_hour_zero_padded
-    add_index "datawarehouse.kg_datawarehouse_time_of_day_hours_expanded_dimensions", :hour_minute_24, :name => :kg_dw_todhe_hour_minute_24
-    add_index "datawarehouse.kg_datawarehouse_time_of_day_hours_expanded_dimensions", :hour_minute, :name => :kg_dw_todhe_hour_minute
-    add_index "datawarehouse.kg_datawarehouse_time_of_day_hours_expanded_dimensions", :hour_minute_second_24, :name => :kg_dw_todhe_hour_minute_second_24
-    add_index "datawarehouse.kg_datawarehouse_time_of_day_hours_expanded_dimensions", :hour_minute_second, :name => :kg_dw_todhe_hour_minute_second
-    add_index "datawarehouse.kg_datawarehouse_time_of_day_hours_expanded_dimensions", :hour_minute_24_zero_padded, :name => :kg_dw_todhe_hour_minute_24_zero_padded
-    add_index "datawarehouse.kg_datawarehouse_time_of_day_hours_expanded_dimensions", :hour_minute_zero_padded, :name => :kg_dw_todhe_hour_minute_zero_padded
-    add_index "datawarehouse.kg_datawarehouse_time_of_day_hours_expanded_dimensions", :hour_minute_second_24_zero_padded, :name => :kg_dw_todhe_hour_minute_second_24_zero_padded
-    add_index "datawarehouse.kg_datawarehouse_time_of_day_hours_expanded_dimensions", :hour_minute_second_zero_padded, :name => :kg_dw_todhe_hour_minute_second_zero_padded
-    add_index "datawarehouse.kg_datawarehouse_time_of_day_hours_expanded_dimensions", :minute, :name => :kg_dw_todhe_minute
-    add_index "datawarehouse.kg_datawarehouse_time_of_day_hours_expanded_dimensions", :minute_zero_padded, :name => :kg_dw_todhe_minute_zero_padded
-    add_index "datawarehouse.kg_datawarehouse_time_of_day_hours_expanded_dimensions", :minutes_since_midnight, :name => :kg_dw_todhe_minutes_since_midnight
-    add_index "datawarehouse.kg_datawarehouse_time_of_day_hours_expanded_dimensions", :second, :name => :kg_dw_todhe_second
-    add_index "datawarehouse.kg_datawarehouse_time_of_day_hours_expanded_dimensions", :second_zero_padded, :name => :kg_dw_todhe_second_zero_padded
-    add_index "datawarehouse.kg_datawarehouse_time_of_day_hours_expanded_dimensions", :seconds_since_midnight, :name => :kg_dw_todhe_seconds_since_midnight
+    add_index "datawarehouse.kg_datawarehouse_time_of_day_hours_extended_dimensions", :hour_24, :name => :kg_dw_todhe_hour_24
+    add_index "datawarehouse.kg_datawarehouse_time_of_day_hours_extended_dimensions", :hour, :name => :kg_dw_todhe_hour
+    add_index "datawarehouse.kg_datawarehouse_time_of_day_hours_extended_dimensions", :hour_24_zero_padded, :name => :kg_dw_todhe_hour_24_zero_padded
+    add_index "datawarehouse.kg_datawarehouse_time_of_day_hours_extended_dimensions", :hour_zero_padded, :name => :kg_dw_todhe_hour_zero_padded
+    add_index "datawarehouse.kg_datawarehouse_time_of_day_hours_extended_dimensions", :hour_minute_24, :name => :kg_dw_todhe_hour_minute_24
+    add_index "datawarehouse.kg_datawarehouse_time_of_day_hours_extended_dimensions", :hour_minute, :name => :kg_dw_todhe_hour_minute
+    add_index "datawarehouse.kg_datawarehouse_time_of_day_hours_extended_dimensions", :hour_minute_second_24, :name => :kg_dw_todhe_hour_minute_second_24
+    add_index "datawarehouse.kg_datawarehouse_time_of_day_hours_extended_dimensions", :hour_minute_second, :name => :kg_dw_todhe_hour_minute_second
+    add_index "datawarehouse.kg_datawarehouse_time_of_day_hours_extended_dimensions", :hour_minute_24_zero_padded, :name => :kg_dw_todhe_hour_minute_24_zero_padded
+    add_index "datawarehouse.kg_datawarehouse_time_of_day_hours_extended_dimensions", :hour_minute_zero_padded, :name => :kg_dw_todhe_hour_minute_zero_padded
+    add_index "datawarehouse.kg_datawarehouse_time_of_day_hours_extended_dimensions", :hour_minute_second_24_zero_padded, :name => :kg_dw_todhe_hour_minute_second_24_zero_padded
+    add_index "datawarehouse.kg_datawarehouse_time_of_day_hours_extended_dimensions", :hour_minute_second_zero_padded, :name => :kg_dw_todhe_hour_minute_second_zero_padded
+    add_index "datawarehouse.kg_datawarehouse_time_of_day_hours_extended_dimensions", :minute, :name => :kg_dw_todhe_minute
+    add_index "datawarehouse.kg_datawarehouse_time_of_day_hours_extended_dimensions", :minute_zero_padded, :name => :kg_dw_todhe_minute_zero_padded
+    add_index "datawarehouse.kg_datawarehouse_time_of_day_hours_extended_dimensions", :minutes_since_midnight, :name => :kg_dw_todhe_minutes_since_midnight
+    add_index "datawarehouse.kg_datawarehouse_time_of_day_hours_extended_dimensions", :second, :name => :kg_dw_todhe_second
+    add_index "datawarehouse.kg_datawarehouse_time_of_day_hours_extended_dimensions", :second_zero_padded, :name => :kg_dw_todhe_second_zero_padded
+    add_index "datawarehouse.kg_datawarehouse_time_of_day_hours_extended_dimensions", :seconds_since_midnight, :name => :kg_dw_todhe_seconds_since_midnight
     
-    create_table "datawarehouse.kg_datawarehouse_time_of_day_minutes_expanded_dimensions", primary_key: :time_of_day_key  do |t|
+    create_table "datawarehouse.kg_datawarehouse_time_of_day_minutes_extended_dimensions", primary_key: :time_of_day_key  do |t|
       t.integer   :hour_24
       t.integer   :hour # duplicate of hour_24
       t.string    :hour_24_zero_padded
@@ -282,26 +282,26 @@ class CreateKgDatawarehouseDateDimensions < ActiveRecord::Migration
       t.string    :second_zero_padded
       t.integer   :seconds_since_midnight
     end
-    add_index "datawarehouse.kg_datawarehouse_time_of_day_minutes_expanded_dimensions", :hour_24, :name => :kg_dw_todme_hour_24
-    add_index "datawarehouse.kg_datawarehouse_time_of_day_minutes_expanded_dimensions", :hour, :name => :kg_dw_todme_hour
-    add_index "datawarehouse.kg_datawarehouse_time_of_day_minutes_expanded_dimensions", :hour_24_zero_padded, :name => :kg_dw_todme_hour_24_zero_padded
-    add_index "datawarehouse.kg_datawarehouse_time_of_day_minutes_expanded_dimensions", :hour_zero_padded, :name => :kg_dw_todme_hour_zero_padded
-    add_index "datawarehouse.kg_datawarehouse_time_of_day_minutes_expanded_dimensions", :hour_minute_24, :name => :kg_dw_todme_hour_minute_24
-    add_index "datawarehouse.kg_datawarehouse_time_of_day_minutes_expanded_dimensions", :hour_minute, :name => :kg_dw_todme_hour_minute
-    add_index "datawarehouse.kg_datawarehouse_time_of_day_minutes_expanded_dimensions", :hour_minute_second_24, :name => :kg_dw_todme_hour_minute_second_24
-    add_index "datawarehouse.kg_datawarehouse_time_of_day_minutes_expanded_dimensions", :hour_minute_second, :name => :kg_dw_todme_hour_minute_second
-    add_index "datawarehouse.kg_datawarehouse_time_of_day_minutes_expanded_dimensions", :hour_minute_24_zero_padded, :name => :kg_dw_todme_hour_minute_24_zero_padded
-    add_index "datawarehouse.kg_datawarehouse_time_of_day_minutes_expanded_dimensions", :hour_minute_zero_padded, :name => :kg_dw_todme_hour_minute_zero_padded
-    add_index "datawarehouse.kg_datawarehouse_time_of_day_minutes_expanded_dimensions", :hour_minute_second_24_zero_padded, :name => :kg_dw_todme_hour_minute_second_24_zero_padded
-    add_index "datawarehouse.kg_datawarehouse_time_of_day_minutes_expanded_dimensions", :hour_minute_second_zero_padded, :name => :kg_dw_todme_hour_minute_second_zero_padded
-    add_index "datawarehouse.kg_datawarehouse_time_of_day_minutes_expanded_dimensions", :minute, :name => :kg_dw_todme_minute
-    add_index "datawarehouse.kg_datawarehouse_time_of_day_minutes_expanded_dimensions", :minute_zero_padded, :name => :kg_dw_todme_minute_zero_padded
-    add_index "datawarehouse.kg_datawarehouse_time_of_day_minutes_expanded_dimensions", :minutes_since_midnight, :name => :kg_dw_todme_minutes_since_midnight
-    add_index "datawarehouse.kg_datawarehouse_time_of_day_minutes_expanded_dimensions", :second, :name => :kg_dw_todme_second
-    add_index "datawarehouse.kg_datawarehouse_time_of_day_minutes_expanded_dimensions", :second_zero_padded, :name => :kg_dw_todme_second_zero_padded
-    add_index "datawarehouse.kg_datawarehouse_time_of_day_minutes_expanded_dimensions", :seconds_since_midnight, :name => :kg_dw_todme_seconds_since_midnight
+    add_index "datawarehouse.kg_datawarehouse_time_of_day_minutes_extended_dimensions", :hour_24, :name => :kg_dw_todme_hour_24
+    add_index "datawarehouse.kg_datawarehouse_time_of_day_minutes_extended_dimensions", :hour, :name => :kg_dw_todme_hour
+    add_index "datawarehouse.kg_datawarehouse_time_of_day_minutes_extended_dimensions", :hour_24_zero_padded, :name => :kg_dw_todme_hour_24_zero_padded
+    add_index "datawarehouse.kg_datawarehouse_time_of_day_minutes_extended_dimensions", :hour_zero_padded, :name => :kg_dw_todme_hour_zero_padded
+    add_index "datawarehouse.kg_datawarehouse_time_of_day_minutes_extended_dimensions", :hour_minute_24, :name => :kg_dw_todme_hour_minute_24
+    add_index "datawarehouse.kg_datawarehouse_time_of_day_minutes_extended_dimensions", :hour_minute, :name => :kg_dw_todme_hour_minute
+    add_index "datawarehouse.kg_datawarehouse_time_of_day_minutes_extended_dimensions", :hour_minute_second_24, :name => :kg_dw_todme_hour_minute_second_24
+    add_index "datawarehouse.kg_datawarehouse_time_of_day_minutes_extended_dimensions", :hour_minute_second, :name => :kg_dw_todme_hour_minute_second
+    add_index "datawarehouse.kg_datawarehouse_time_of_day_minutes_extended_dimensions", :hour_minute_24_zero_padded, :name => :kg_dw_todme_hour_minute_24_zero_padded
+    add_index "datawarehouse.kg_datawarehouse_time_of_day_minutes_extended_dimensions", :hour_minute_zero_padded, :name => :kg_dw_todme_hour_minute_zero_padded
+    add_index "datawarehouse.kg_datawarehouse_time_of_day_minutes_extended_dimensions", :hour_minute_second_24_zero_padded, :name => :kg_dw_todme_hour_minute_second_24_zero_padded
+    add_index "datawarehouse.kg_datawarehouse_time_of_day_minutes_extended_dimensions", :hour_minute_second_zero_padded, :name => :kg_dw_todme_hour_minute_second_zero_padded
+    add_index "datawarehouse.kg_datawarehouse_time_of_day_minutes_extended_dimensions", :minute, :name => :kg_dw_todme_minute
+    add_index "datawarehouse.kg_datawarehouse_time_of_day_minutes_extended_dimensions", :minute_zero_padded, :name => :kg_dw_todme_minute_zero_padded
+    add_index "datawarehouse.kg_datawarehouse_time_of_day_minutes_extended_dimensions", :minutes_since_midnight, :name => :kg_dw_todme_minutes_since_midnight
+    add_index "datawarehouse.kg_datawarehouse_time_of_day_minutes_extended_dimensions", :second, :name => :kg_dw_todme_second
+    add_index "datawarehouse.kg_datawarehouse_time_of_day_minutes_extended_dimensions", :second_zero_padded, :name => :kg_dw_todme_second_zero_padded
+    add_index "datawarehouse.kg_datawarehouse_time_of_day_minutes_extended_dimensions", :seconds_since_midnight, :name => :kg_dw_todme_seconds_since_midnight
     
-    create_table "datawarehouse.kg_datawarehouse_time_of_day_seconds_expanded_dimensions", primary_key: :time_of_day_key  do |t|
+    create_table "datawarehouse.kg_datawarehouse_time_of_day_seconds_extended_dimensions", primary_key: :time_of_day_key  do |t|
       t.integer   :hour_24
       t.integer   :hour # duplicate of hour_24
       t.string    :hour_24_zero_padded
@@ -321,24 +321,24 @@ class CreateKgDatawarehouseDateDimensions < ActiveRecord::Migration
       t.string    :second_zero_padded
       t.integer   :seconds_since_midnight
     end
-    add_index "datawarehouse.kg_datawarehouse_time_of_day_seconds_expanded_dimensions", :hour_24, :name => :kg_dw_todse_hour_24
-    add_index "datawarehouse.kg_datawarehouse_time_of_day_seconds_expanded_dimensions", :hour, :name => :kg_dw_todse_hour
-    add_index "datawarehouse.kg_datawarehouse_time_of_day_seconds_expanded_dimensions", :hour_24_zero_padded, :name => :kg_dw_todse_hour_24_zero_padded
-    add_index "datawarehouse.kg_datawarehouse_time_of_day_seconds_expanded_dimensions", :hour_zero_padded, :name => :kg_dw_todse_hour_zero_padded
-    add_index "datawarehouse.kg_datawarehouse_time_of_day_seconds_expanded_dimensions", :hour_minute_24, :name => :kg_dw_todse_hour_minute_24
-    add_index "datawarehouse.kg_datawarehouse_time_of_day_seconds_expanded_dimensions", :hour_minute, :name => :kg_dw_todse_hour_minute
-    add_index "datawarehouse.kg_datawarehouse_time_of_day_seconds_expanded_dimensions", :hour_minute_second_24, :name => :kg_dw_todse_hour_minute_second_24
-    add_index "datawarehouse.kg_datawarehouse_time_of_day_seconds_expanded_dimensions", :hour_minute_second, :name => :kg_dw_todse_hour_minute_second
-    add_index "datawarehouse.kg_datawarehouse_time_of_day_seconds_expanded_dimensions", :hour_minute_24_zero_padded, :name => :kg_dw_todse_hour_minute_24_zero_padded
-    add_index "datawarehouse.kg_datawarehouse_time_of_day_seconds_expanded_dimensions", :hour_minute_zero_padded, :name => :kg_dw_todse_hour_minute_zero_padded
-    add_index "datawarehouse.kg_datawarehouse_time_of_day_seconds_expanded_dimensions", :hour_minute_second_24_zero_padded, :name => :kg_dw_todse_hour_minute_second_24_zero_padded
-    add_index "datawarehouse.kg_datawarehouse_time_of_day_seconds_expanded_dimensions", :hour_minute_second_zero_padded, :name => :kg_dw_todse_hour_minute_second_zero_padded
-    add_index "datawarehouse.kg_datawarehouse_time_of_day_seconds_expanded_dimensions", :minute, :name => :kg_dw_todse_minute
-    add_index "datawarehouse.kg_datawarehouse_time_of_day_seconds_expanded_dimensions", :minute_zero_padded, :name => :kg_dw_todse_minute_zero_padded
-    add_index "datawarehouse.kg_datawarehouse_time_of_day_seconds_expanded_dimensions", :minutes_since_midnight, :name => :kg_dw_todse_minutes_since_midnight
-    add_index "datawarehouse.kg_datawarehouse_time_of_day_seconds_expanded_dimensions", :second, :name => :kg_dw_todse_second
-    add_index "datawarehouse.kg_datawarehouse_time_of_day_seconds_expanded_dimensions", :second_zero_padded, :name => :kg_dw_todse_second_zero_padded
-    add_index "datawarehouse.kg_datawarehouse_time_of_day_seconds_expanded_dimensions", :seconds_since_midnight, :name => :kg_dw_todse_seconds_since_midnight
+    add_index "datawarehouse.kg_datawarehouse_time_of_day_seconds_extended_dimensions", :hour_24, :name => :kg_dw_todse_hour_24
+    add_index "datawarehouse.kg_datawarehouse_time_of_day_seconds_extended_dimensions", :hour, :name => :kg_dw_todse_hour
+    add_index "datawarehouse.kg_datawarehouse_time_of_day_seconds_extended_dimensions", :hour_24_zero_padded, :name => :kg_dw_todse_hour_24_zero_padded
+    add_index "datawarehouse.kg_datawarehouse_time_of_day_seconds_extended_dimensions", :hour_zero_padded, :name => :kg_dw_todse_hour_zero_padded
+    add_index "datawarehouse.kg_datawarehouse_time_of_day_seconds_extended_dimensions", :hour_minute_24, :name => :kg_dw_todse_hour_minute_24
+    add_index "datawarehouse.kg_datawarehouse_time_of_day_seconds_extended_dimensions", :hour_minute, :name => :kg_dw_todse_hour_minute
+    add_index "datawarehouse.kg_datawarehouse_time_of_day_seconds_extended_dimensions", :hour_minute_second_24, :name => :kg_dw_todse_hour_minute_second_24
+    add_index "datawarehouse.kg_datawarehouse_time_of_day_seconds_extended_dimensions", :hour_minute_second, :name => :kg_dw_todse_hour_minute_second
+    add_index "datawarehouse.kg_datawarehouse_time_of_day_seconds_extended_dimensions", :hour_minute_24_zero_padded, :name => :kg_dw_todse_hour_minute_24_zero_padded
+    add_index "datawarehouse.kg_datawarehouse_time_of_day_seconds_extended_dimensions", :hour_minute_zero_padded, :name => :kg_dw_todse_hour_minute_zero_padded
+    add_index "datawarehouse.kg_datawarehouse_time_of_day_seconds_extended_dimensions", :hour_minute_second_24_zero_padded, :name => :kg_dw_todse_hour_minute_second_24_zero_padded
+    add_index "datawarehouse.kg_datawarehouse_time_of_day_seconds_extended_dimensions", :hour_minute_second_zero_padded, :name => :kg_dw_todse_hour_minute_second_zero_padded
+    add_index "datawarehouse.kg_datawarehouse_time_of_day_seconds_extended_dimensions", :minute, :name => :kg_dw_todse_minute
+    add_index "datawarehouse.kg_datawarehouse_time_of_day_seconds_extended_dimensions", :minute_zero_padded, :name => :kg_dw_todse_minute_zero_padded
+    add_index "datawarehouse.kg_datawarehouse_time_of_day_seconds_extended_dimensions", :minutes_since_midnight, :name => :kg_dw_todse_minutes_since_midnight
+    add_index "datawarehouse.kg_datawarehouse_time_of_day_seconds_extended_dimensions", :second, :name => :kg_dw_todse_second
+    add_index "datawarehouse.kg_datawarehouse_time_of_day_seconds_extended_dimensions", :second_zero_padded, :name => :kg_dw_todse_second_zero_padded
+    add_index "datawarehouse.kg_datawarehouse_time_of_day_seconds_extended_dimensions", :seconds_since_midnight, :name => :kg_dw_todse_seconds_since_midnight
     
   end
 

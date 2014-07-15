@@ -10,7 +10,7 @@ module KgDatawarehouse
       time_start = Time.parse("2000-01-01 00:00:00 -0000")
       
       ActiveRecord::Base.transaction do
-        (0..1800).each do |i|
+        (0..2879).each do |i|
           new_time = KgDatawarehouse::TimeOfDayMinutesExtendedDimension.new
           hour = (i/60).floor
           minutes_since_midnight = i

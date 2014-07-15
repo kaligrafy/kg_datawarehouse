@@ -9,7 +9,7 @@ module KgDatawarehouse
       KgDatawarehouse::TimeOfDayHoursExtendedDimension.destroy_all # delete existing data from table
       
       ActiveRecord::Base.transaction do
-        (0..30).each do |i|
+        (0..47).each do |i|
           new_time = KgDatawarehouse::TimeOfDayHoursExtendedDimension.new
           hour = i
           minutes_since_midnight = i*60

@@ -1,8 +1,8 @@
 require "active_support/core_ext/numeric/time"
 
 module KgDatawarehouse
-  class TimeOfDaySecondsExpandedDimension < ActiveRecord::Base
-    self.table_name = :kg_datawarehouse_time_of_day_seconds_expanded_dimensions
+  class TimeOfDaySecondsExtendedDimension < ActiveRecord::Base
+    self.table_name = :kg_datawarehouse_time_of_day_seconds_extended_dimensions
     self.primary_key = :time_of_day_key
     
     def self.fill
@@ -11,7 +11,7 @@ module KgDatawarehouse
       
       ActiveRecord::Base.transaction do
         (0..108000).each do |i|
-          new_time = KgDatawarehouse::TimeOfDaySecondsExpandedDimension.new
+          new_time = KgDatawarehouse::TimeOfDaySecondsExtendedDimension.new
           hour = (i/3600).floor
           minutes_since_midnight = (i/60).floor
           seconds_since_midnight = i
